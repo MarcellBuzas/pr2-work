@@ -10,6 +10,12 @@ void csere(int* x, int* y);
 
 void csere2(int& x, int& y);
 
+void Feltolt(int& tmb[], int n);
+
+void Kiír(int& tmb[], int);
+
+int Max(int& tmb[], int);
+
 
 int main()
 {
@@ -19,6 +25,8 @@ int main()
 	cout << "\nSzamtani atlag: " << Atlag(jegy2, 10) << endl;
 
 	// Érték szerinti átadás.
+	/*
+	
 	int szam1, szam2;
 	cout << "Elso szam: ";
 	cin >> szam1;
@@ -29,6 +37,28 @@ int main()
 	cout << "Csere utan: " << szam1 << ", " << szam2 << endl;
 	csere2(szam1, szam2);
 	cout << "Csere utan: " << szam1 << ", " << szam2 << endl;
+
+	*/
+
+	// Tömb feltöltése adatokkal. 
+	srand((unsigned)time(NULL));
+	int db;
+	do
+	{
+		cout << "Hany tanuloja van a csoportnak? ";
+		cin >> db;
+		if (db < 1 || db>10) {
+			cout << "Nem jó a szám! (1-10)" << endl;
+		}
+	} while (db<1|| db>10);
+
+	int *jegy = new int[db];
+	Feltolt(jegy, db);
+	Kiír(jegy, db);
+	cout << "\n A legjobb dolgozat erteke: " << Max(jegy, db) << endl;
+
+
+
 
 
 	return 0;
@@ -60,4 +90,33 @@ void csere2(int& x, int& y)
 	y = seged;
 }
 
+void Feltolt(int tmb[], int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		tmb[i] = (rand() % 100) + 1;
+	}
+}
 
+
+void Kiír(int tmb[], int n)
+{
+	cout << "\nA csoport jegyei: \n";
+	for (int i = 0; i < n; i++)
+	{
+		cout << setw(4) << tmb[i];
+	}
+	cout << endl;
+}
+
+int Max(int& tmb[], int n)
+{
+	int max = 0;
+	for (int i = 1; i < n; i++)
+	{
+		if (max < tmb[i]) {
+			max = tmb[i];
+		}
+	}
+	return max;
+}

@@ -1,2 +1,5 @@
 ﻿  FileName.cpp
-  Project1.vcxproj -> C:\Munka\pr2-work\Project1\x64\Debug\Project1.exe
+C:\Munka\pr2-work\Project1\Project1\FileName.cpp(55,7): error C2372: 'jegy': redefinition; different types of indirection
+  C:\Munka\pr2-work\Project1\Project1\FileName.cpp(22,6):
+  see declaration of 'jegy'
+  
